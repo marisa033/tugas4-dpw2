@@ -12,11 +12,11 @@
 					<a href="{{url('admin/produk/create')}}" class="btn btn-info float-right"><i class="fa fa-plus"></i> Tambah</a>		
 				</div>
 				<div class="card-body">
-					<table class="table">
+					<table class="table ">
 						<thead>
 							<th>No</th>
-							<th>Aksi</th>
-							<th>Nama</th>
+							<th width="100px" class="text-center">Aksi</th>
+							<th class="text-center">Nama</th>
 							<th>Harga</th>
 							<th>Stock</th>
 						</thead>
@@ -24,15 +24,15 @@
 							@foreach($list_produk as $produk)
 							<tr>
 								<td>{{$loop->iteration}}</td>
-								<td>
-									<div class="btn-group">
-									<a href="{{url ('admin/produk', $produk->id)}}" class="btn btn-dark"><i class="fa fa-info"></i></a>
-									<a href="{{url ('admin/produk', $produk->id)}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+								<td >
+									<div class="btn-group" style="float: left;">
+									<a href="{{url ('admin/produk', $produk->id)}}" class="btn btn-sm btn-dark"><i class="fa fa-info"></i></a>
+									<a href="{{url ('admin/produk', $produk->id)}}/edit" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
 									@include('admin.utils.delete', ['url' => url ('admin/produk', $produk->id)])
 									</div>
 								</td>
-								<td>{{$produk->nama}}</td>
-								<td>{{$produk->harga}}</td>
+								<td class="text-center">{{ucwords($produk->nama)}}</td>
+								<td>Rp. {{number_format($produk->harga)}}</td>
 								<td>{{$produk->stok}}</td>
 								
 							</tr>
